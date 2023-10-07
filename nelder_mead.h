@@ -90,7 +90,7 @@ struct nelder_mead_result {
  * @return structure with output information
  */
 template<typename real>
-nelder_mead_result<real,n> nelder_mead(
+nelder_mead_result<real> nelder_mead(
         const std::function<real(const std::vector<real> &)> &fn,
         std::vector<real> start,
         real reqmin,
@@ -129,7 +129,7 @@ nelder_mead_result<real,n> nelder_mead(
 
     std::vector<std::vector<real>> p(n + 1, std::vector<real>(n));
     std::vector<real> pstar(n), p2star(n), pbar(n);
-    std::vector y(n + 1);
+    std::vector<real> y(n + 1);
 
     result.icount = 0;
     result.numres = 0;
